@@ -5,7 +5,8 @@ class GetFromFile
     levels=[]
     level=[]
     level_data.each do |line|
-      if line != "#"
+      p line
+      if !line.match(/^#/)
         level<<line
       else
         levels<<level

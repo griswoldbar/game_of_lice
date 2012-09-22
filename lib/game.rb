@@ -1,5 +1,5 @@
 class Game
-  attr_accessor :board, :cells
+  attr_accessor :board, :cells, :turns
   
   def initialize(level_id=1, turns = 50)
     @turns = turns
@@ -17,13 +17,13 @@ class Game
   def play
     @turns.times do
       Display.render(board,cells)
-      sleep 1
       advance
     end
   end
   
   def advance
-    cells.map(&:advance)
+    cells.map(&:advance1)
+    cells.map(&:advance2)
   end
   
   

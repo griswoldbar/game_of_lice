@@ -1,18 +1,22 @@
 class Cell
   attr_reader :x, :y, :board, :max_height, :max_width
+  attr_accessor :status, :next_status
   
   def initialize(board, x, y)
     @board, @x, @y = board, x, y
     @max_height = board.height - 1
     @max_width = board.width - 1
+    @status = board.grid[x][y]
+    @next_status = get_next_status
   end
   
-  def status
-    @board.grid[x][y]
+  def advance1
+    @board.grid[x][y] = @next_status
   end
   
-  def advance
-    @board.grid[x][y] = next_status
+  def advance2
+    @status = @board.grid[x][y]
+    @next_status = get_next_status
   end
   
   def neighbours
@@ -47,7 +51,7 @@ class Cell
     end
   end
   
-  def next_status
+  def get_next_status
     case
       when (sum_neighbours > 3 or sum_neighbours < 2)
         0
