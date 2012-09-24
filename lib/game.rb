@@ -15,15 +15,23 @@ class Game
   end
   
   def play
-    @turns.times do
-      Display.render(board,cells)
+    start_time = Time.now.tv_sec
+    @turns.times do |n| 
+      turn = n+1
+      loop_time = (Time.now.tv_sec - start_time + 0.1)
+      speed = n/loop_time
+      Display.render(board,cells, speed)
       advance
     end
   end
   
   def advance
-    cells.map(&:advance1)
-    cells.map(&:advance2)
+    cells.each do |cell|
+      cell.advance1    
+    end
+    cells.each do |cell|
+      cell.advance2    
+    end
   end
   
   

@@ -1,6 +1,6 @@
 class Display
 
-  def self.render(board, cells)
+  def self.render(board, cells, info)
     system('clear')
     last_row = 0
     str = ""
@@ -15,6 +15,7 @@ class Display
       last_row = cell.x
     end
     puts str
+    puts "speed: #{info}"
   end
   
 end
