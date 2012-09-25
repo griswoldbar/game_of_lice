@@ -1,1 +1,1 @@
-Dir.glob('../lib/*.rb') {|file| require_relative file}
+Dir.glob('./lib/*.rb') {|file| require file}

@@ -1,4 +1,4 @@
-require '../lib/requirements'
+require './lib/requirements'
 
 
 
