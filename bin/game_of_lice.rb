@@ -1,8 +1,3 @@
-require './lib/requirements'
+require_relative '../lib/requirements'
 
-
-
-
-
-
-# game = Game.new
+game = Game.new
